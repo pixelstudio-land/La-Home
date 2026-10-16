@@ -1,6 +1,6 @@
 /* ===================================================
    CSS GLOBAL — MÁQUINA DE ORÇAMENTOS LA HOME PISOS
-   ESTILO ULTRA-PRIME DARK LUXURY & GLASSMORPHISM
+   ESTILO CLEAN ARCHITECTURAL LIGHT LUXURY & SCANDINAVIAN
    =================================================== */
 
 /* --- RESET & BASE --- */
@@ -15,23 +15,24 @@ html {
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Figtree', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     color: var(--text-primary);
     background-color: var(--bg-main);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    background-image: 
-        radial-gradient(ellipse at 50% 0%, rgba(255, 90, 0, 0.08) 0%, transparent 60%),
-        radial-gradient(ellipse at 85% 40%, rgba(124, 58, 237, 0.08) 0%, transparent 50%);
-    background-repeat: no-repeat;
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    color: var(--text-pure);
+    font-family: 'Archivo', 'Plus Jakarta Sans', sans-serif;
+    color: var(--marinho);
     letter-spacing: -0.02em;
+}
+
+.orange-text {
+    color: var(--orange-primary);
+    font-weight: 800;
 }
 
 .brand-gradient-text {
@@ -47,19 +48,40 @@ h1, h2, h3, h4 {
     padding: 0 24px;
 }
 
-/* --- HEADER FLUTUANTE DE VIDRO --- */
+/* --- LISTRAS OFICIAIS DO TOPO (EXATAMENTE COMO NO SITE) --- */
+.top-stripes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    display: flex;
+    z-index: 1001;
+}
+
+.stripe-orange {
+    flex: 1;
+    background-color: var(--orange-primary);
+}
+
+.stripe-purple {
+    flex: 1;
+    background-color: var(--purple-primary);
+}
+
+/* --- HEADER CLEAN DE VIDRO BRANCO --- */
 header {
     background: var(--bg-header);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--brand-border);
-    padding: 12px 0;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 14px 0;
     position: fixed;
     width: 100%;
-    top: 0;
+    top: 4px;
     z-index: 1000;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 15px rgba(15, 30, 54, 0.05);
 }
 
 header .flex {
@@ -68,39 +90,75 @@ header .flex {
     align-items: center;
 }
 
+.header-left-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--grafite);
+}
+
+.header-left-info i {
+    color: var(--purple-primary);
+}
+
+.header-left-info strong {
+    color: var(--marinho);
+}
+
 .logo {
     display: flex;
     align-items: center;
-    gap: 14px;
     text-decoration: none;
 }
 
 .logo img {
-    height: 52px;
+    height: 48px;
     width: auto;
     display: block;
-    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.5));
     transition: transform 0.25s ease;
 }
 
 .logo:hover img {
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
 /* Botão WhatsApp do Header */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.zap-header-text {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    font-size: 0.82rem;
+    line-height: 1.25;
+}
+
+.zap-header-text strong {
+    color: var(--marinho);
+}
+
+.zap-header-text span {
+    color: var(--grafite-light);
+    font-size: 0.74rem;
+}
+
 .btn-zap-header {
-    background: rgba(16, 185, 129, 0.12);
-    color: #10B981;
-    border: 1px solid rgba(16, 185, 129, 0.35);
-    width: 48px;
-    height: 48px;
+    background: #10B981;
+    color: #FFFFFF;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 14px var(--accent-whatsapp-glow);
     position: relative;
 }
 
@@ -121,30 +179,25 @@ header .flex {
 }
 
 .btn-zap-header i {
-    font-size: 1.75rem;
-    color: #10B981;
-    transition: transform 0.25s ease, color 0.25s ease;
-}
-
-.btn-zap-header:hover {
-    background: #10B981;
-    border-color: #10B981;
-    box-shadow: 0 6px 24px var(--accent-whatsapp-glow);
-    transform: scale(1.08);
-}
-
-.btn-zap-header:hover i {
+    font-size: 1.5rem;
     color: #FFFFFF;
 }
 
-/* --- HERO SECTION --- */
+.btn-zap-header:hover {
+    background: #059669;
+    transform: scale(1.08);
+}
+
+/* --- HERO SECTION CLEAN LUXURY --- */
 .hero {
     position: relative;
     padding: 130px 0 80px 0;
-    min-height: 100vh;
+    min-height: 92vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(180deg, rgba(8, 9, 13, 0.74) 0%, rgba(8, 9, 13, 0.96) 100%), var(--bg-hero);
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(248, 250, 252, 0.88) 55%, rgba(241, 245, 249, 0.75) 100%), 
+        var(--bg-hero);
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -163,21 +216,19 @@ header .flex {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(255, 90, 0, 0.1);
-    border: 1px solid var(--brand-border);
-    color: var(--orange-light);
+    background: rgba(255, 90, 0, 0.08);
+    border: 1px solid rgba(255, 90, 0, 0.25);
+    color: var(--orange-primary);
     font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     padding: 6px 18px;
     border-radius: 30px;
-    margin-bottom: 20px;
-    backdrop-filter: blur(8px);
+    margin-bottom: 18px;
 }
 
 .hero-eyebrow i {
-    color: var(--orange-primary);
     font-size: 0.85rem;
 }
 
@@ -185,34 +236,31 @@ header .flex {
     font-size: clamp(2.1rem, 4.2vw, 3.4rem);
     line-height: 1.15;
     font-weight: 800;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     text-transform: uppercase;
-    max-width: 840px;
+    max-width: 860px;
+    color: var(--marinho);
 }
 
 .hero p {
     font-size: clamp(1rem, 1.8vw, 1.15rem);
-    color: var(--text-secondary);
-    max-width: 700px;
-    margin-bottom: 36px;
+    color: var(--grafite);
+    max-width: 720px;
+    margin-bottom: 34px;
     font-weight: 400;
     line-height: 1.6;
 }
 
-/* --- CALCULADORA DARK GLASS --- */
+/* --- CALCULADORA CLEAN WHITE CARD --- */
 .calculator-box {
     background: var(--bg-card);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid var(--brand-border);
+    border: 1px solid var(--border-subtle);
     border-radius: 20px;
     padding: 36px;
     max-width: 580px;
     width: 100%;
     text-align: left;
-    box-shadow: 
-        0 20px 50px rgba(0, 0, 0, 0.7),
-        0 0 40px var(--orange-glow);
+    box-shadow: var(--card-shadow);
     position: relative;
     overflow: hidden;
 }
@@ -223,7 +271,7 @@ header .flex {
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
+    height: 4px;
     background: var(--brand-gradient);
 }
 
@@ -245,7 +293,7 @@ header .flex {
 .calc-header h3 {
     font-size: 1.45rem;
     font-weight: 700;
-    color: var(--text-pure);
+    color: var(--marinho);
 }
 
 .form-group {
@@ -258,7 +306,7 @@ header .flex {
     gap: 8px;
     font-size: 0.88rem;
     font-weight: 600;
-    color: var(--text-secondary);
+    color: var(--marinho);
     margin-bottom: 8px;
 }
 
@@ -273,22 +321,21 @@ header .flex {
 
 .input-wrapper input, .select-wrapper select {
     width: 100%;
-    background: var(--bg-input);
-    border: 1px solid var(--glass-border);
+    background: #FFFFFF;
+    border: 1.5px solid var(--border-subtle);
     border-radius: 12px;
     padding: 14px 18px;
-    color: var(--text-pure);
+    color: var(--marinho);
     font-size: 1rem;
     font-family: inherit;
+    font-weight: 500;
     transition: all 0.25s ease;
     outline: none;
-    backdrop-filter: blur(10px);
 }
 
 .input-wrapper input:focus, .select-wrapper select:focus {
-    background: var(--bg-input-focus);
-    border-color: var(--brand-border-focus);
-    box-shadow: 0 0 15px rgba(255, 90, 0, 0.2);
+    border-color: var(--orange-primary);
+    box-shadow: 0 0 0 3px rgba(255, 90, 0, 0.12);
 }
 
 .input-suffix {
@@ -296,7 +343,7 @@ header .flex {
     right: 18px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--text-muted);
+    color: var(--grafite-light);
     font-weight: 700;
     font-size: 0.95rem;
     pointer-events: none;
@@ -307,11 +354,6 @@ header .flex {
     -webkit-appearance: none;
     cursor: pointer;
     padding-right: 42px;
-}
-
-.select-wrapper select option, .select-wrapper select optgroup {
-    background: var(--bg-surface);
-    color: var(--text-primary);
 }
 
 .select-wrapper::after {
@@ -330,29 +372,29 @@ header .flex {
 /* Botão da Calculadora */
 .btn-calc {
     width: 100%;
-    background: var(--brand-gradient);
+    background: var(--orange-gradient);
     color: #FFFFFF;
     border: none;
     border-radius: 12px;
     padding: 16px 24px;
     font-size: 1rem;
     font-weight: 800;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
-    margin-top: 28px;
+    margin-top: 26px;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 6px 22px var(--orange-glow);
+    box-shadow: 0 6px 20px rgba(255, 90, 0, 0.3);
 }
 
 .btn-calc:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px var(--orange-glow);
-    filter: brightness(1.08);
+    box-shadow: 0 10px 26px rgba(255, 90, 0, 0.4);
+    filter: brightness(1.05);
 }
 
 .btn-calc i {
@@ -366,9 +408,9 @@ header .flex {
 
 /* --- SEÇÃO DE MARCAS PARCEIRAS --- */
 .brands-bar {
-    background: var(--bg-surface);
-    border-top: 1px solid var(--glass-border-light);
-    border-bottom: 1px solid var(--glass-border-light);
+    background: #FFFFFF;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
     padding: 24px 0;
     text-align: center;
 }
@@ -378,7 +420,7 @@ header .flex {
     font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--orange-primary);
+    color: var(--grafite);
     margin-bottom: 14px;
 }
 
@@ -387,10 +429,10 @@ header .flex {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 20px 32px;
-    color: var(--text-muted);
+    gap: 20px 34px;
+    color: var(--marinho);
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.05em;
 }
 
@@ -399,7 +441,7 @@ header .flex {
 }
 
 .brands-list span:hover {
-    color: var(--orange-light);
+    color: var(--orange-primary);
 }
 
 /* --- SEÇÃO DE DIFERENCIAIS --- */
@@ -434,28 +476,26 @@ header .flex {
 }
 
 .feature-item {
-    background: var(--bg-card);
-    border: 1px solid var(--glass-border);
+    background: #FFFFFF;
+    border: 1px solid var(--border-subtle);
     border-radius: 16px;
     padding: 32px 26px;
     transition: all 0.3s ease;
-    position: relative;
+    box-shadow: 0 4px 15px rgba(15, 30, 54, 0.03);
     display: flex;
     flex-direction: column;
 }
 
 .feature-item:hover {
-    background: var(--bg-card-hover);
-    border-color: var(--brand-border);
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 90, 0, 0.15);
+    box-shadow: var(--card-shadow-hover);
+    border-color: rgba(255, 90, 0, 0.4);
 }
 
 .feature-icon-wrapper {
     width: 54px;
     height: 54px;
     background: rgba(255, 90, 0, 0.1);
-    border: 1px solid var(--brand-border);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -469,26 +509,26 @@ header .flex {
     font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 12px;
-    color: var(--text-pure);
+    color: var(--marinho);
 }
 
 .feature-item p {
     font-size: 0.92rem;
-    color: var(--text-secondary);
+    color: var(--grafite);
     line-height: 1.6;
 }
 
 /* --- SEÇÃO SOBRE A LA HOME & REGIÕES ATENDIDAS --- */
 .about-section {
     padding: 70px 0;
-    background: var(--bg-surface);
-    border-top: 1px solid var(--glass-border-light);
-    border-bottom: 1px solid var(--glass-border-light);
+    background: #FFFFFF;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 .about-card {
-    background: var(--bg-card);
-    border: 1px solid var(--brand-border);
+    background: var(--bg-main);
+    border: 1px solid var(--border-subtle);
     border-radius: 20px;
     padding: 40px;
     display: grid;
@@ -501,10 +541,11 @@ header .flex {
     font-size: 1.8rem;
     font-weight: 800;
     margin-bottom: 16px;
+    color: var(--marinho);
 }
 
 .about-info p {
-    color: var(--text-secondary);
+    color: var(--grafite);
     font-size: 0.98rem;
     margin-bottom: 20px;
     line-height: 1.65;
@@ -518,13 +559,14 @@ header .flex {
 }
 
 .city-pill {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--glass-border);
-    color: var(--text-secondary);
+    background: #FFFFFF;
+    border: 1px solid var(--border-subtle);
+    color: var(--marinho);
     font-size: 0.8rem;
     font-weight: 600;
     padding: 6px 14px;
     border-radius: 20px;
+    box-shadow: 0 1px 4px rgba(15, 30, 54, 0.04);
 }
 
 .about-stats {
@@ -534,11 +576,12 @@ header .flex {
 }
 
 .stat-box {
-    background: rgba(8, 9, 13, 0.6);
-    border: 1px solid var(--glass-border);
+    background: #FFFFFF;
+    border: 1px solid var(--border-subtle);
     border-radius: 14px;
     padding: 24px;
     text-align: center;
+    box-shadow: 0 4px 12px rgba(15, 30, 54, 0.04);
 }
 
 .stat-number {
@@ -552,15 +595,15 @@ header .flex {
 .stat-label {
     font-size: 0.82rem;
     font-weight: 600;
-    color: var(--text-secondary);
+    color: var(--grafite);
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 /* --- FOOTER --- */
 footer {
-    background: #050608;
-    border-top: 1px solid var(--glass-border-light);
+    background: #FFFFFF;
+    border-top: 1px solid var(--border-subtle);
     padding: 40px 0;
 }
 
@@ -579,19 +622,19 @@ footer {
 
 .footer-text {
     font-size: 0.88rem;
-    color: var(--text-muted);
+    color: var(--grafite-light);
 }
 
-/* --- MODAL DE PROPOSTA EXECUTIVA --- */
+/* --- MODAL DE PROPOSTA EXECUTIVA (CLEAN LUXURY) --- */
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.82);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: rgba(15, 30, 54, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     display: none;
     align-items: center;
     justify-content: center;
@@ -606,14 +649,14 @@ footer {
 }
 
 .modal-content {
-    background: var(--bg-modal);
-    border: 1px solid var(--brand-border);
+    background: #FFFFFF;
+    border: 1px solid var(--border-subtle);
     border-radius: 24px;
     max-width: 620px;
     width: 100%;
     padding: 38px;
     position: relative;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 50px rgba(255, 90, 0, 0.2);
+    box-shadow: 0 25px 60px rgba(15, 30, 54, 0.25);
     max-height: 90vh;
     overflow-y: auto;
     animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -628,9 +671,9 @@ footer {
     position: absolute;
     top: 18px;
     right: 20px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid var(--glass-border);
-    color: var(--text-secondary);
+    background: #F1F5F9;
+    border: 1px solid var(--border-subtle);
+    color: var(--grafite);
     width: 36px;
     height: 36px;
     border-radius: 50%;
@@ -644,8 +687,8 @@ footer {
 }
 
 .close-modal:hover {
-    background: rgba(255, 255, 255, 0.15);
-    color: #FFFFFF;
+    background: #E2E8F0;
+    color: var(--marinho);
     transform: rotate(90deg);
 }
 
@@ -657,19 +700,19 @@ footer {
 .modal-header h3 {
     font-size: 1.6rem;
     font-weight: 800;
-    color: var(--text-pure);
+    color: var(--marinho);
 }
 
 .modal-sub {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--grafite);
     margin-top: 4px;
 }
 
 /* Card de Preço Total */
 .price-card {
-    background: linear-gradient(145deg, rgba(255, 90, 0, 0.09) 0%, rgba(15, 17, 24, 0.9) 100%);
-    border: 1px solid var(--brand-border);
+    background: linear-gradient(145deg, #FFF7ED 0%, #F8FAFC 100%);
+    border: 1.5px solid rgba(255, 90, 0, 0.25);
     border-radius: 16px;
     padding: 24px;
     text-align: center;
@@ -688,14 +731,14 @@ footer {
 .total-value {
     font-size: clamp(2rem, 5vw, 2.7rem);
     font-weight: 800;
-    color: var(--text-pure);
+    color: var(--marinho);
     letter-spacing: -0.02em;
     margin-bottom: 8px;
 }
 
 .installments-row {
     font-size: 0.88rem;
-    color: var(--text-secondary);
+    color: var(--grafite);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -708,8 +751,8 @@ footer {
 
 /* Escopo do Pacote */
 .scope-box {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--glass-border);
+    background: #F8FAFC;
+    border: 1px solid var(--border-subtle);
     border-radius: 12px;
     padding: 16px;
     margin-bottom: 22px;
@@ -718,7 +761,7 @@ footer {
 .scope-title {
     font-size: 0.85rem;
     font-weight: 700;
-    color: var(--orange-light);
+    color: var(--marinho);
     margin-bottom: 6px;
     display: flex;
     align-items: center;
@@ -727,7 +770,7 @@ footer {
 
 .scope-text {
     font-size: 0.88rem;
-    color: var(--text-secondary);
+    color: var(--grafite);
     line-height: 1.5;
 }
 
@@ -743,18 +786,18 @@ footer {
     font-size: 0.78rem;
     font-weight: 800;
     letter-spacing: 0.12em;
-    color: var(--text-muted);
+    color: var(--grafite);
     text-transform: uppercase;
     margin-bottom: 12px;
 }
 
 .badge-pkg {
-    background: rgba(255, 90, 0, 0.12);
-    border: 1px solid var(--brand-border);
+    background: rgba(255, 90, 0, 0.1);
     color: var(--orange-primary);
     padding: 3px 10px;
     border-radius: 12px;
     font-size: 0.7rem;
+    font-weight: 700;
 }
 
 .bonus-grid {
@@ -767,8 +810,8 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--glass-border-light);
+    background: #F8FAFC;
+    border: 1px solid var(--border-subtle);
     border-radius: 10px;
     padding: 10px 14px;
 }
@@ -778,8 +821,8 @@ footer {
     align-items: center;
     gap: 10px;
     font-size: 0.86rem;
-    color: var(--text-primary);
-    font-weight: 500;
+    color: var(--marinho);
+    font-weight: 600;
 }
 
 .bonus-item-title i {
@@ -798,24 +841,22 @@ footer {
 
 .badge-included {
     background: rgba(16, 185, 129, 0.12);
-    color: #10B981;
-    border: 1px solid rgba(16, 185, 129, 0.25);
+    color: #059669;
 }
 
 .badge-courtesy {
-    background: rgba(255, 90, 0, 0.15);
+    background: rgba(255, 90, 0, 0.12);
     color: var(--orange-primary);
-    border: 1px solid var(--brand-border);
 }
 
 .badge-optional {
-    background: rgba(255, 255, 255, 0.06);
-    color: var(--text-muted);
+    background: #E2E8F0;
+    color: var(--grafite);
 }
 
 .strike {
     text-decoration: line-through;
-    color: var(--text-muted);
+    color: var(--grafite-light);
     font-size: 0.75rem;
     margin-right: 4px;
 }
@@ -835,13 +876,13 @@ footer {
     justify-content: center;
     gap: 12px;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 8px 25px var(--accent-whatsapp-glow);
+    box-shadow: 0 8px 24px var(--accent-whatsapp-glow);
 }
 
 .btn-action:hover {
     background: #059669;
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px var(--accent-whatsapp-glow);
+    box-shadow: 0 12px 28px var(--accent-whatsapp-glow);
 }
 
 .btn-action i {
@@ -855,7 +896,7 @@ footer {
     gap: 12px;
     margin-top: 18px;
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: var(--grafite-light);
 }
 
 .modal-trust-footer span i {
@@ -865,7 +906,7 @@ footer {
 
 .disclaimer {
     font-size: 0.72rem;
-    color: var(--text-muted);
+    color: var(--grafite-light);
     text-align: center;
     margin-top: 14px;
     line-height: 1.4;
@@ -873,21 +914,29 @@ footer {
 
 /* --- RESPONSIVIDADE --- */
 @media (max-width: 768px) {
+    .header-left-info {
+        display: none;
+    }
+
+    .zap-header-text {
+        display: none;
+    }
+
     header {
         padding: 10px 0;
     }
 
     .logo img {
-        height: 42px;
+        height: 38px;
     }
 
     .btn-zap-header {
-        width: 42px;
-        height: 42px;
+        width: 40px;
+        height: 40px;
     }
 
     .btn-zap-header i {
-        font-size: 1.5rem;
+        font-size: 1.35rem;
     }
 
     .hero {

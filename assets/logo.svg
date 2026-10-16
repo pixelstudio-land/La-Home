@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" width="320" height="120">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&amp;display=swap');
+      .la-text {
+        font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+        font-size: 78px;
+        font-weight: 700;
+        fill: #0F1E36;
+        letter-spacing: -2px;
+      }
+      .sub-text {
+        font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+        font-size: 15px;
+        font-weight: 600;
+        fill: #0F1E36;
+        letter-spacing: 6px;
+      }
+    </style>
+  </defs>
+  <text x="50%" y="68" text-anchor="middle" class="la-text">LA</text>
+  <text x="50%" y="102" text-anchor="middle" class="sub-text">HOME PISOS</text>
+</svg>

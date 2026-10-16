@@ -1,47 +1,49 @@
 /* ===================================================
-   PALETA ULTRA-PRIME DARK LUXURY — LA HOME PISOS
-   Identidade: Laranja Vibrante & Royal Purple / Obsidian Glass
+   PALETA SCANDINAVIAN LIGHT LUXURY — LA HOME PISOS
+   Identidade Oficial: Branco Puro, Marinho Nobre, Laranja & Roxo
    =================================================== */
 :root {
-    /* Cores de Fundo & Superfícies */
-    --bg-main: #08090D;
-    --bg-surface: #0E1017;
-    --bg-header: rgba(10, 11, 16, 0.88);
-    --bg-card: rgba(15, 17, 24, 0.78);
-    --bg-card-hover: rgba(22, 26, 38, 0.92);
-    --bg-modal: rgba(11, 13, 19, 0.98);
-    --bg-input: rgba(255, 255, 255, 0.04);
-    --bg-input-focus: rgba(255, 90, 0, 0.07);
+    /* Cores de Fundo & Superfícies Clean */
+    --bg-main: #F8FAFC;
+    --bg-surface: #FFFFFF;
+    --bg-header: rgba(255, 255, 255, 0.96);
+    --bg-card: rgba(255, 255, 255, 0.95);
+    --bg-card-hover: #FFFFFF;
+    --bg-modal: #FFFFFF;
+    --bg-input: #FFFFFF;
+    --bg-input-focus: #FFFFFF;
 
-    /* Cores de Marca La Home */
+    /* Cores Oficiais La Home (Extraídas do Site Oficial) */
+    --marinho: #0F1E36;
+    --marinho-light: #1E293B;
     --orange-primary: #FF5A00;
-    --orange-light: #FF7E33;
+    --orange-light: #FF7A29;
     --purple-primary: #7C3AED;
     --purple-deep: #58129C;
-    --purple-glow: rgba(124, 58, 237, 0.35);
-    --orange-glow: rgba(255, 90, 0, 0.35);
-    
-    /* Degradê Oficial La Home */
-    --brand-gradient: linear-gradient(135deg, #FF5A00 0%, #A855F7 60%, #7C3AED 100%);
-    --brand-border: rgba(255, 90, 0, 0.3);
-    --brand-border-focus: rgba(124, 58, 237, 0.65);
+    --grafite: #475569;
+    --grafite-light: #64748B;
 
-    /* Bordas & Efeitos de Vidro */
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-border-light: rgba(255, 255, 255, 0.04);
-    --glass-shine: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    /* Degradês & Acentos */
+    --brand-gradient: linear-gradient(135deg, #FF5A00 0%, #9333EA 100%);
+    --orange-gradient: linear-gradient(135deg, #FF6B1A 0%, #FF5A00 100%);
+    --card-shadow: 0 15px 40px rgba(15, 30, 54, 0.08);
+    --card-shadow-hover: 0 22px 50px rgba(15, 30, 54, 0.14);
+
+    /* Bordas & Detalhes */
+    --border-subtle: #E2E8F0;
+    --border-focus: #FF5A00;
 
     /* Tipografia & Contrastes */
-    --text-pure: #FFFFFF;
-    --text-primary: #F8FAFC;
-    --text-secondary: #CBD5E1;
-    --text-muted: #94A3B8;
+    --text-pure: #0F1E36;
+    --text-primary: #0F1E36;
+    --text-secondary: #475569;
+    --text-muted: #64748B;
 
     /* WhatsApp & Conversão Esmeralda */
     --accent-whatsapp: #10B981;
     --accent-whatsapp-hover: #059669;
-    --accent-whatsapp-glow: rgba(16, 185, 129, 0.45);
+    --accent-whatsapp-glow: rgba(16, 185, 129, 0.35);
 
-    /* Imagem de Fundo Hero */
+    /* Imagem de Fundo Hero (Foto Oficial do Site La Home) */
     --bg-hero: url('../assets/fundo.jpg');
 }
