@@ -132,7 +132,7 @@ function calcular() {
 
     if (isSobConsulta) {
         valorFormatado = "SOB CONSULTA";
-        if (totalLabel) totalLabel.innerText = "Condição do Pacote";
+        if (totalLabel) totalLabel.innerText = "Condição do Pacote (Sem Frete Incluso)";
         if (valorFinal) {
             valorFinal.innerHTML = `<span style="font-size: 1.85rem; font-weight: 800; letter-spacing: 0.5px; color: var(--orange-light);">SOB CONSULTA</span>`;
         }
@@ -144,9 +144,10 @@ function calcular() {
             `📐 *Metragem:* ${metragem}m²\n` +
             `🪵 *Linha Selecionada:* ${modeloNome}\n` +
             `📋 *Escopo:* ${modeloDescricao}\n` +
-            `💰 *Investimento:* Sob Consulta (Proposta Personalizada)\n\n` +
+            `💰 *Investimento:* Sob Consulta (Proposta Personalizada)\n` +
+            `🚚 *Frete:* A consultar (Ref. SP Capital até 30km / 50m²: R$ 580)\n\n` +
             `🏠 *Condições do Local:*\n` +
-            `- Piso Atual: ${pisoAtualNome}\n` +
+            `- Piso Atual / Remoção: ${pisoAtualNome}\n` +
             `- Nivelamento da Superfície: ${nivelamentoNome}\n\n` +
             `⚡ *Diferenciais La Home:* Obra Expressa em 48h | Horários Flexíveis | 5 Anos de Garantia de Instalação.\n\n` +
             `Gostaria de receber a cotação oficial e agendar a visita técnica de cortesia!`;
@@ -154,7 +155,7 @@ function calcular() {
         total = metragem * modeloPreco;
         valorFormatado = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-        if (totalLabel) totalLabel.innerText = "Investimento Estimado (Tudo Incluso + Rodapé)";
+        if (totalLabel) totalLabel.innerText = "Investimento Estimado (Tudo Incluso + Rodapé | Sem Frete)";
         if (valorFinal) {
             valorFinal.innerText = valorFormatado;
         }
@@ -166,9 +167,10 @@ function calcular() {
             `📐 *Metragem:* ${metragem}m²\n` +
             `🪵 *Linha Selecionada:* ${modeloNome}\n` +
             `📋 *Escopo:* ${modeloDescricao}\n` +
-            `💰 *Investimento Estimado:* ${valorFormatado} (Materiais + Mão de obra própria + Rodapé inclusos)\n\n` +
+            `💰 *Investimento Estimado:* ${valorFormatado} (Materiais + Mão de obra própria + Rodapé inclusos | Sem frete)\n` +
+            `🚚 *Frete:* A consultar (Ref. SP Capital até 30km / 50m²: R$ 580)\n\n` +
             `🏠 *Condições do Local:*\n` +
-            `- Piso Atual: ${pisoAtualNome}\n` +
+            `- Piso Atual / Remoção: ${pisoAtualNome}\n` +
             `- Nivelamento da Superfície: ${nivelamentoNome}\n\n` +
             `⚡ *Diferenciais La Home:* Obra Expressa em 48h | Horários Flexíveis | 5 Anos de Garantia de Instalação.\n\n` +
             `Gostaria de confirmar essa condição e agendar a visita técnica de cortesia!`;
@@ -177,6 +179,36 @@ function calcular() {
     const modalSubtitle = document.getElementById('modalSubtitle');
     if (modalSubtitle) {
         modalSubtitle.innerText = modeloDescricao;
+    }
+
+    // Configurar Nota Técnica Dinâmica conforme a categoria do piso
+    const scopeNoteBox = document.getElementById('scopeNoteBox');
+    if (scopeNoteBox) {
+        if (modeloNome.includes("Vinílico Colado")) {
+            scopeNoteBox.style.display = 'flex';
+            scopeNoteBox.innerHTML = `
+                <i class="fas fa-shield-halved"></i>
+                <div class="scope-note-text">
+                    <strong>Aviso de Regularização Técnica:</strong> Nos pisos vinílicos colados, está inclusa regularização com massa de nivelamento básica de até <strong>4 milímetros</strong>. Desníveis acentuados (como degraus de 10 a 20 mm entre cerâmica e cimento ou contrapiso bruto) serão avaliados à parte na visita técnica de cortesia.
+                </div>
+            `;
+        } else if (modeloNome.includes("Laminado")) {
+            scopeNoteBox.style.display = 'flex';
+            scopeNoteBox.innerHTML = `
+                <i class="fas fa-layer-group"></i>
+                <div class="scope-note-text">
+                    <strong>Manta de Instalação Inclusa:</strong> Incluso manta de polietileno expandido para amortecimento e conforto acústico sob o piso laminado. Contrapisos com umidade ou desníveis severos serão checados na visita técnica de cortesia.
+                </div>
+            `;
+        } else {
+            scopeNoteBox.style.display = 'flex';
+            scopeNoteBox.innerHTML = `
+                <i class="fas fa-check-double"></i>
+                <div class="scope-note-text">
+                    <strong>Manta Acústica Integrada:</strong> O piso SPC Clicado já conta com base de absorção acústica de alta performance integrada de fábrica.
+                </div>
+            `;
+        }
     }
 
     const link = `https://wa.me/${CONFIG.empresa.whatsapp}?text=${encodeURIComponent(textoZap)}`;

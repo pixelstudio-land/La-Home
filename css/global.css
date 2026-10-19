@@ -749,13 +749,42 @@ footer {
     color: var(--orange-primary);
 }
 
+/* Frete Box */
+.shipping-info-box {
+    background: #F1F5F9;
+    border: 1px dashed #CBD5E1;
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.shipping-info-box i {
+    color: var(--orange-primary);
+    font-size: 1.15rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.shipping-info-text {
+    font-size: 0.84rem;
+    color: var(--marinho);
+    line-height: 1.45;
+}
+
+.shipping-info-text strong {
+    color: var(--marinho);
+}
+
 /* Escopo do Pacote */
 .scope-box {
     background: #F8FAFC;
     border: 1px solid var(--border-subtle);
     border-radius: 12px;
     padding: 16px;
-    margin-bottom: 22px;
+    margin-bottom: 14px;
 }
 
 .scope-title {
@@ -772,6 +801,35 @@ footer {
     font-size: 0.88rem;
     color: var(--grafite);
     line-height: 1.5;
+}
+
+/* Nota Técnica / Aviso de Regularização */
+.scope-note-box {
+    background: #FFFBEB;
+    border: 1px solid #FDE68A;
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.scope-note-box i {
+    color: #D97706;
+    font-size: 1.15rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.scope-note-text {
+    font-size: 0.82rem;
+    color: #78350F;
+    line-height: 1.45;
+}
+
+.scope-note-text strong {
+    color: #78350F;
 }
 
 /* Bônus Grid */
