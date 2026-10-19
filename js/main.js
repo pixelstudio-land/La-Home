@@ -33,6 +33,7 @@ function inicializarDadosEstruturais() {
             const tempOption = document.createElement('option');
             tempOption.value = op.valor;
             tempOption.innerText = op.texto;
+            tempOption.text = op.texto;
             pisoAtualSelect.appendChild(tempOption);
         });
     }
@@ -60,11 +61,12 @@ function inicializarDadosEstruturais() {
                     sobConsulta: isSobConsulta
                 });
 
-                if (isSobConsulta) {
-                    tempOption.innerText = `${piso.nome} — Sob Consulta (Solicitar Cotação)`;
-                } else {
-                    tempOption.innerText = `${piso.nome} — R$ ${piso.preco.toFixed(2).replace('.', ',')}/m² (Tudo Incluso)`;
-                }
+                const labelText = isSobConsulta
+                    ? `${piso.nome} — Sob Consulta (Solicitar Cotação)`
+                    : `${piso.nome} — R$ ${piso.preco.toFixed(2).replace('.', ',')}/m² (Tudo Incluso)`;
+
+                tempOption.innerText = labelText;
+                tempOption.text = labelText;
                 optgroup.appendChild(tempOption);
             });
 
@@ -110,10 +112,14 @@ function calcular() {
     const modeloDescricao = modeloData.descricao;
 
     const pisoAtual = document.getElementById('pisoAtual');
-    const pisoAtualNome = pisoAtual.options[pisoAtual.selectedIndex].text;
+    const pisoAtualNome = (pisoAtual && pisoAtual.options && pisoAtual.selectedIndex >= 0) 
+        ? (pisoAtual.options[pisoAtual.selectedIndex].text || pisoAtual.options[pisoAtual.selectedIndex].innerText || '') 
+        : '';
 
     const nivelamentoEl = document.getElementById('nivelamento');
-    const nivelamentoNome = nivelamentoEl.options[nivelamentoEl.selectedIndex].text;
+    const nivelamentoNome = (nivelamentoEl && nivelamentoEl.options && nivelamentoEl.selectedIndex >= 0) 
+        ? (nivelamentoEl.options[nivelamentoEl.selectedIndex].text || nivelamentoEl.options[nivelamentoEl.selectedIndex].innerText || '') 
+        : '';
 
     if (isNaN(metragem) || metragem < 1) {
         alert("Por favor, digite uma metragem válida.");
@@ -123,6 +129,7 @@ function calcular() {
     const isSobConsulta = modeloData.sobConsulta || modeloData.preco === null || modeloData.preco === undefined;
     const totalLabel = document.querySelector('.total-label');
     const valorFinal = document.getElementById('valorFinal');
+    const installmentsText = document.getElementById('installmentsText');
     const linkZap = document.getElementById('linkZap');
     const btnSpan = linkZap ? linkZap.querySelector('span') : null;
 
@@ -135,6 +142,9 @@ function calcular() {
         if (totalLabel) totalLabel.innerText = "Condição do Pacote (Sem Frete Incluso)";
         if (valorFinal) {
             valorFinal.innerHTML = `<span style="font-size: 1.85rem; font-weight: 800; letter-spacing: 0.5px; color: var(--orange-light);">SOB CONSULTA</span>`;
+        }
+        if (installmentsText) {
+            installmentsText.innerHTML = 'Consulte condições de parcelamento em até <strong>18x no cartão</strong>';
         }
         if (btnSpan) {
             btnSpan.innerText = "SOLICITAR VALOR DESSE PACOTE NO WHATSAPP";
@@ -158,6 +168,10 @@ function calcular() {
         if (totalLabel) totalLabel.innerText = "Investimento Estimado (Tudo Incluso + Rodapé | Sem Frete)";
         if (valorFinal) {
             valorFinal.innerText = valorFormatado;
+        }
+        if (installmentsText) {
+            const parcela18 = (total / 18).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            installmentsText.innerHTML = `Até <strong>18x de ${parcela18}</strong> no cartão ou Pix em 2x`;
         }
         if (btnSpan) {
             btnSpan.innerText = "CONFIRMAR ORÇAMENTO NO WHATSAPP";
